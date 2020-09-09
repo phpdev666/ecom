@@ -126,7 +126,7 @@ Route::get('/removecat/{id}','cart@delete');
 Auth::routes();
 
 
-Route::get('admin/home', 'dashboard@index')->name('admin.route')->middleware('admin');
+Route::get('admin', 'dashboard@index')->name('admin.route')->middleware('admin');
 
 
 Route::get('/products/select/{id}','select@products');

@@ -134,6 +134,9 @@ function myFunction(imgs) {
 
 				<div class="col-md-8 agileinfo_single_right">
 				<h2>{{$get[0]->productname}}</h2>
+
+						
+
 					<div class="w3agile_description">
 						<h4>Shot Description :</h4>
 						<p>{{$get[0]->shot_description}}.</p>
@@ -142,6 +145,10 @@ function myFunction(imgs) {
 						<div class="snipcart-thumb agileinfo_single_right_snipcart">
 							<h4 class="m-sing">{{$get[0]->sell_price}} <span>{{$get[0]->price}}</span>&nbsp&nbsp&nbsp<b>{{$get[0]->discount}}% OFF</b></h4>
 						</div>
+						@if($get[0]->status=='deactivate')
+						<h2 style="color: red;">Out of stock</h2>
+						@else
+						
 						<div class="snipcart-details agileinfo_single_right_details">
 							<form action="{{url('addcart',$get[0]->product_id )}}" method="post">
 								@csrf
@@ -152,6 +159,7 @@ function myFunction(imgs) {
 								</fieldset>
 							</form>
 						</div>
+						@endif
 					<div class="w3agile_description">
 						<h4>Description :</h4>
 						<p>{{$get[0]->description}}.</p>

@@ -34,7 +34,13 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 <!-- chart -->
 <!-- //chart -->
+  <script src="{{ url('js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ url('js/modernizr.custom.js') }}"></script>
 
+<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<!-- Metis Menu -->
+<script src="{{ url('js/metisMenu.min.js') }}"></script>
+<script src="{{ url('js/custom.js') }}"></script>
 
 <link href="{{ url('css/custom.css') }}" rel="stylesheet">
 <!--//Metis Menu -->
@@ -405,13 +411,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		
 	<!-- new added graphs chart js-->
 	
-  <script src="{{ url('js/jquery-1.11.1.min.js') }}"></script>
-<script src="{{ url('js/modernizr.custom.js') }}"></script>
 
-<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-<!-- Metis Menu -->
-<script src="{{ url('js/metisMenu.min.js') }}"></script>
-<script src="{{ url('js/custom.js') }}"></script>
 
 	<!-- new added graphs chart js-->
 	

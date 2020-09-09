@@ -16,13 +16,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="{{ url('user/css/font-awesome.css') }}" rel="stylesheet"> 
 <!-- //font-awesome icons -->
 
-
-
-
-
-
-
-
+<script src="{{ url('user/js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ url('user/js/bootstrap.min.js') }}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="{{ url('user/js/move-top.js') }}"></script>
+<script type="text/javascript" src="{{ url('user/js/easing.js') }}"></script>
 
 <!-- //js -->
 <link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
@@ -87,23 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</form>
 		</div>
 			
-<script type="text/javascript">
-    $('#search').on('keyup',function(){
-    $value=$(this).val();
-    $.ajax({
-    type : 'get',
-    url : '{{URL::to('search')}}',
-    data:{'search':$value},
-    success:function(data){
-    	console.log(data);
-    document.getElementById("livesearch").innerHTML = data;
-    }
-    });
-    })
-</script>
-<script type="text/javascript">
-    $.ajaxSetup({ headers: { csrftoken: "{{ csrf_token() }}" } });
-</script>
+
 
 
 
@@ -221,11 +203,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //footer -->	
 <!-- Bootstrap Core JavaScript -->
 <!-- js -->
-<script src="{{ url('user/js/jquery-1.11.1.min.js') }}"></script>
-<script src="{{ url('user/js/bootstrap.min.js') }}"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script type="text/javascript" src="{{ url('user/js/move-top.js') }}"></script>
-<script type="text/javascript" src="{{ url('user/js/easing.js') }}"></script>
+
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
@@ -255,17 +233,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 	</script>
 <!-- //here ends scrolling icon -->
-<script src="{{ url('user/js/minicart.min.js') }}"></script>
-<script>
-	// Mini Cart
-	paypal.minicart.render({
-		action: '#'
-	});
 
-	if (~window.location.search.indexOf('reset=true')) {
-		paypal.minicart.reset();
-	}
-</script>
 <!-- main slider-banner -->
 <script src="{{ url('user/js/skdslider.min.js') }}"></script>
 <link href="{{ url('user/css/skdslider.css') }}" rel="stylesheet">
@@ -279,6 +247,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 		});
 </script>	
+<script type="text/javascript">
+   
+    $('#search').on('keyup',function(){
+    $value=$(this).val();
+    $.ajax({
+    type : 'get',
+    url : '{{URL::to('search')}}',
+    data:{'search':$value},
+    success:function(data){
+    	console.log(data);
+    document.getElementById("livesearch").innerHTML = data;
+    }
+    });
+    })
+</script>
+<script type="text/javascript">
+    $.ajaxSetup({ headers: { csrftoken: "{{ csrf_token() }}" } });
+</script>
 <!-- //main slider-banner --> 
 </body>
 </html>
