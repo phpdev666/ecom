@@ -191,6 +191,9 @@ function myFunction(imgs) {
 													<h4>{{$pr->sell_price}} <span>{{$pr->discount_price}}</span></h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
+@if ($pr->status=='deactivate')
+<h4 style="font-size: 22px; color: red;">OUT OF STOCK</h4>
+@else
 												<form action="{{url('addcart',$pr->product_id )}}" method="post">
 													@csrf
 													<fieldset>
@@ -199,6 +202,7 @@ function myFunction(imgs) {
 														<input type="submit" name="submit" value="Add to cart" class="button">
 													</fieldset>
 												</form>
+@endif
 											</div>
 										</div>
 									</figure>

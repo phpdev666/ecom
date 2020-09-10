@@ -50,7 +50,7 @@
                   <tr>
                      <th scope="row"><?php echo $no++;?></th>
                      <td>{{ $key->modelno }}</td>
-                     <td>{{ $key->cat_id }}</td>
+                     <td>{{ $key->name }}</td>
                      <td><?php $proname=$key->productname; ?>{{ substr($proname,0,30)}} </td>
                      <td><?php $sub=$key->shot_description; ?>{{ substr($sub,0,80)}} </td>
                      <td><?php $disc=$key->description; ?>{{ substr($disc,0,150)}} </td>

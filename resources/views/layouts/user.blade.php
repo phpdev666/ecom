@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="agileits_header">
 		<div class="container">
 			<div class="w3l_offers">
-				<p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>
+				<p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="{{url('/')}}">SHOP NOW</a></p>
 			</div>
 			<div class="agile-login">
 
@@ -118,7 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</li>
 									@endforeach
 								
-									<li><a href="offers.html">Offers</a></li>
+									
 									<li><a href="{{url('contact')}}">Contact</a></li>
 								</ul>
 							</div>
@@ -195,7 +195,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 				<div class="payment-w3ls">	
-					<img src="user/images/card.png" alt=" " class="img-responsive">
+					<img src="{{url('user/images/card.png')}}" alt=" " class="img-responsive">
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -213,7 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	});
 </script>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.js" rel="stylesheet"> 
+
 
 <!-- top-header and slider -->
 <!-- here stars scrolling icon -->

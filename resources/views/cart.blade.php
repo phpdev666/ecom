@@ -22,7 +22,7 @@
 		<div class="container">
 
 			<h2>Your shopping cart contains: <span>{{count($pro)}} Products</span></h2>
-
+<form method="post" action="{{url('/checkout')}}">@csrf
 			<div class="checkout-right">
 				<table id="tblid" class="timetable_sub">
 					<thead>
@@ -48,8 +48,11 @@
 							 	@if($data->status=='active')
 								<div class="quantity-select">                           
 
-									<input type="Number" onChange="total(this,{{$no-1}},{{$data->sell_price}})" value="1" class="qty" pattern="[1-9]{1}-[0-9]{2}"><br>
-									
+									<input type="Number" onChange="total(this,{{$no-1}},{{$data->sell_price}})" name="pro[{{$no-1}}][qty]" value="1" class="qty" pattern="[1-9]{1}-[0-9]{2}"><br>
+									<input type="hidden" name="pro[{{$no-1}}][pid]" readonly value="{{$data->product_id }}">
+									<input type="hidden" name="pro[{{$no-1}}][name]" readonly value="{{$data->productname }}">
+									<input type="hidden" name="pro[{{$no-1}}][price]" readonly value="{{$data->sell_price }}">
+
 								</div>
 								@else
 								<div>
@@ -63,11 +66,14 @@
 						<input type="hidden" readonly id="price" value="{{$data->sell_price}}">
 						
 								<td class="total" style="">
+										@if($data->status=='active')
+								
 									<b id="pricea">{{$data->sell_price}}</b>&nbsp;
 									<b>X</b>&nbsp;
 									<b class="qant_{{$no-1}}">1</b>
 									<b> = </b>
 									<b class="tot_{{$no-1}}">{{$data->sell_price}}</b>
+									@endif
 								 </td>
 								<td class="invert">
 							<a href="{{url('removecat',$data->cart_id )}}"><div class="rem">
@@ -101,22 +107,19 @@
 									<!--quantity-->
 				</table>
 				</div>
+				
 			<div class="checkout-left">	
-				<div class="checkout-left-basket">
-					<h4>Continue to basket</h4>
-					<ul>
-						<li>Product1 <i>-</i> <span>$15.00 </span></li>
-						<li>Product2 <i>-</i> <span>$25.00 </span></li>
-						<li>Product3 <i>-</i> <span>$29.00 </span></li>
-						<li>Total Service Charges <i>-</i> <span>$15.00</span></li>
-						<li>Total <i>-</i> <span>$84.00</span></li>
-					</ul>
+				<div class="checkout-left-basket" style="float: right;">
+					
+					<button style="padding: 20px;" type="submit" class="btn btn-primary"> CONTINUE TO BASKET</button>
+					
 				</div>
 				
 				<div class="clearfix"> </div>
 			</div>
 		</div>
 	</div>
+	</form>
 <!-- //checkout -->
  <script type="text/javascript">
                             function total($this,$no,$price) {
@@ -141,6 +144,7 @@
 
                                
                             }
-                        </script>			
+                        </script>
+                       	
 
 @endsection

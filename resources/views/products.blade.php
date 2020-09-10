@@ -48,7 +48,9 @@
 															<h4>{{$pro->sell_price }} <span>{{$pro->price }}</span></h4>
 														</div>
 														<div class="snipcart-details top_brand_home_details">
-																					
+													@if($pro->status=='deactivate')
+													<h3 style="font-size: 31px; color: red;">Out of stock</h3>
+													@else
 													<form action="{{url('addcart',$pro->product_id )}}" method="post">
 														@csrf
 														<fieldset>
@@ -57,6 +59,8 @@
 															<input type="submit" name="submit" value="Add to cart" class="button">
 														</fieldset>
 													</form>
+													@endif								
+													
 
 														</div>
 													</div>

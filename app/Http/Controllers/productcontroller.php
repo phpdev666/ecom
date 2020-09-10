@@ -75,10 +75,17 @@ class productcontroller extends Controller
 			   }
 	public function productilist()
 			{
-				 $tabdata = DB::table('product')
-		            ->distinct()
-		            ->get();
+				 // $tabdata = DB::table('product')
+		   //          ->distinct()
+		   //          ->get();
 
+		        $tabdata = DB::table('categort')
+			
+            ->leftJoin('product', 'product.cat_id', '=', 'categort.cat_id')
+            ->get();
+			    // echo '<pre>';
+			    // print_r($pro);
+			    // exit();
 				return view('listproduct',['tabdata' => $tabdata]);
 			}
 	public function delete($id)
