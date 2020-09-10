@@ -140,4 +140,10 @@ Route::get('/contact','HomeController@contact');
 
 Route::post('/contactmsg','HomeController@contactmsg');
 
-Route::post('/checkout','checkout@index');
+Route::get('/checkout','checkout@index');
+
+Route::post('/checkoutinsert','checkout@checkoutinsert');
+
+Route::get('/orderlist','showorder@index');
+
+Route::get('/Delete/order/{id}','showorder@delete');

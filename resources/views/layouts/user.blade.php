@@ -30,7 +30,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- start-smoth-scrolling -->
 </head>
 	
-<body>
+<body style="max-width: 100%;
+    overflow-x: hidden;">
 <!-- header -->
  @if(session()->get('cart'))
   <body onload='swal("products insert Cart", "chake cart", "success");'></body>

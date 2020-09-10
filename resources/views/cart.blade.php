@@ -22,7 +22,7 @@
 		<div class="container">
 
 			<h2>Your shopping cart contains: <span>{{count($pro)}} Products</span></h2>
-<form method="post" action="{{url('/checkout')}}">@csrf
+<form method="get" action="{{url('/checkout')}}">@csrf
 			<div class="checkout-right">
 				<table id="tblid" class="timetable_sub">
 					<thead>
