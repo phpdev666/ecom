@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\categort;
 use Storage;
 use DB;
-
+use PDF;
 class productcontroller extends Controller
 {
      public function insertpro()
@@ -122,6 +122,7 @@ class productcontroller extends Controller
 						// 	        ->where('product_id', $id)
 						//             ->get();
 			return view('showpro',['pro' => $pro]);
+		
 		}
 	public function edit($id)
 			    {
@@ -237,5 +238,19 @@ class productcontroller extends Controller
 
 					 return redirect('/productilist')->with('success', 'Record Updata  successfully.');
 				    }
+	    public function PDF($id)
+		    {
+		    	$pro = DB::table('product')
+			 ->where('product_image.product_id', $id)
+            ->leftJoin('product_image', 'product_image.product_id', '=', 'product.product_id')
+            ->get();
+			    // echo '<pre>';
+			    // print_r($pro[0]->modelno);
+			    // exit();
+			
+		$pdf = PDF::loadView('pdf', ['pro' => $pro]);
+  
+        return $pdf->download('itsolutionstuff.pdf');
+		    }
 		    
 }

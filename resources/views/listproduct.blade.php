@@ -33,9 +33,8 @@
                      <th>discount price</th>
                      <th>sell price</th>
                      <th>active/deactivate</th>
+                     <th>PDF</th>
                      <th>Show</th>
-                     
-                     
                      <th>Edit</th>
                      <th>Delete</th>
                   </tr>
@@ -61,6 +60,7 @@
                      <td>{{ $key->sell_price }}</td>
                      <td>@if($key->status=='active') <a href="/pro/active/{{$key->product_id }}" class="btn btn-outline-warning">active</a>
                               @else <a href="/pro/active/{{$key->product_id }}" class="btn btn-warning">deactivate</a>@endif </td>
+                      <td><a href="/PDF/{{$key->product_id}}" class="btn btn-warning">PDF</a></td>
                      <td><a href="/show/pro/{{$key->product_id}}" class="btn btn-primary">Show</a></td>
                      
                     

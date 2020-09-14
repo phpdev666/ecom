@@ -147,3 +147,5 @@ Route::post('/checkoutinsert','checkout@checkoutinsert');
 Route::get('/orderlist','showorder@index');
 
 Route::get('/Delete/order/{id}','showorder@delete');
+
+Route::get('/PDF/{id}','productcontroller@PDF');
