@@ -1,11 +1,9 @@
 @extends('layouts.admin')
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
-    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 @section('content')
 
 <div class="col-sm-12">
-
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
 
 </div>
 <!-- main content start-->
@@ -21,7 +19,7 @@
          <div class="bs-example widget-shadow" data-example-id="hoverable-table">
             <h4>User List:</h4>
             <a class="btn btn-success" style="float: right;" href="{{url('addregister')}}">Add User</a>
-            <table class="table table-hover" id="tbid">
+            <table class="table table-hover" id="myTable">
                <thead>
                   <tr>
                      <th>#</th>
@@ -35,11 +33,12 @@
                </thead>
                <?php
                   $no=1;
+                   ?>
                   
-                  foreach ($data as $key ) {
-                  
-                  ?>
+                 
                <tbody>
+                  @foreach ($data as $key ) 
+
                   <tr>
                      <th scope="row">{{$no++}}</th>
                      <td>{{  $key->name}}</td>
@@ -53,21 +52,27 @@
                      <td><a href="{{ url('/edit/user')}}/{{  $key->id}}" class="btn btn-primary">Edit</a></td>
                      <td><a onclick="myFunction(<?php echo $key->id;?>)"  class="btn btn-danger">Delete</a></td>
                   </tr>
-                  <?php
-                     }
-                         ?>
+                 @endforeach
                </tbody>
             </table>
+            <div align="right">
+             <a class="btn btn-success" href="{{ route('file-export') }}">Excel  data</a>
+             <a class="btn btn-primary" href="{{url('file-import-export')}}">Excel Insert data</a>
+
+             </div>
          </div>
       </div>
    </div>
 </div>
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<script>
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
+
 <script>
    function myFunction($id) {
      var txt;

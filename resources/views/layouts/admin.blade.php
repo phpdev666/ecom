@@ -34,7 +34,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 <!-- chart -->
 <!-- //chart -->
-  <script src="{{ url('js/jquery-1.11.1.min.js') }}"></script>
 <script src="{{ url('js/modernizr.custom.js') }}"></script>
 
 <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
@@ -54,6 +53,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 
 	<!-- requried-jsfiles-for owl -->
 					<link href="{{ url('css/owl.carousel.css') }}" rel="stylesheet">
+  <script src="{{ url('js/jquery-1.11.1.min.js') }}"></script>
 					
 					<!-- //requried-jsfiles-for owl -->
 </head> 

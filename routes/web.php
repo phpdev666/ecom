@@ -149,3 +149,7 @@ Route::get('/orderlist','showorder@index');
 Route::get('/Delete/order/{id}','showorder@delete');
 
 Route::get('/PDF/{id}','productcontroller@PDF');
+
+Route::get('file-import-export', 'UserController@fileImportExport');
+Route::post('file-import', 'UserController@fileImport')->name('file-import');
+Route::get('file-export', 'UserController@fileExport')->name('file-export');

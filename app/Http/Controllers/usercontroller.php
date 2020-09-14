@@ -8,7 +8,9 @@ use App\Http\Controllers\Controller;
 use App\users;
 use Storage;
 use DB;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\UsersImport;
+use App\Exports\UsersExport;
 
 class usercontroller extends Controller
 {
@@ -101,6 +103,27 @@ class usercontroller extends Controller
 		        echo "Record update successfully.<br/>";
 		        return redirect('/userlist')->with('success', 'Record Upadate successfully.');
 		    }
+	 public function fileImportExport()
+		    {
+		       return view('file-import');
+		    }
+   
+		    /**
+		    * @return \Illuminate\Support\Collection
+		    */
+    public function fileImport(Request $request) 
+		    {
+		        Excel::import(new UsersImport, $request->file('file')->store('temp'));
+		        return back();
+		    }
+
+		    /**
+		    * @return \Illuminate\Support\Collection
+		    */
+    public function fileExport() 
+		    {
+		        return Excel::download(new UsersExport, 'users-collection.xlsx');
+		    }    
 
 
 }
