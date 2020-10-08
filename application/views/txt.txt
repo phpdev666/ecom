@@ -1,0 +1,62 @@
+How to model create :---
+Laravel http link:
+http://127.0.0.1:8000/  
+
+Microsoft Windows [Version 10.0.17134.950]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\Kamaxi>cd C:\wamp64\www\laravel\laravel
+
+C:\wamp64\www\laravel\laravel>php artisan make:model laravel_test
+Model created successfully.
+
+
+laravel installtion:-
+-first need to install composer
+-second need to put the path in xammp or wampp path
+-add word composer -enter
+-composer create-project laravel/laravel test dev-develop 
+-alreday exited project only use to this cmd---composer create-project laravel/laravel –-prefer-dist
+composer create-project laravel/laravel test dev-develop
+-after php artisan serve
+
+php artisan make:middleware AgeMiddleware
+
+
+need to add controller use to cmd - php artisan make:controller <controller-name>
+php artisan make:controller MyController
+
+how to insert data :
+
+first create to migration 
+cmd - php artisan make:migration <migration name> --create=tutorial
+-up function in add to query
+then contro0ller create cmd - php artisan make:controller <controller-name>
+php artisan make:controller OrderController --resource
+
+
+php artisan config:cache
+php artisan config:clear
+php artisan cache:clear
+
+// 	public function listnews()
+// 		{
+// 			        $data = DB::table('news')
+// 	            ->distinct()
+// 	            ->get();
+// 			return view('listnews', ['data' => $data]);
+// 		}
+// public function show($id)
+// 		{
+// 			$get = DB::table('news')
+//             ->where('news_id', $id)
+//             ->get();
+//         // print_r($get);
+//         // exit();
+//                 return view('shownese', ['get' => $get]);
+// 		}
+
+
+ajax_cruds = table name
+AjaxCrud   = Controller name
+ajax_index = view name

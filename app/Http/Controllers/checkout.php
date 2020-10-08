@@ -49,13 +49,14 @@ class checkout extends Controller
 						    'pincode' => $request->input('pincode'),
 						    'user_id'=>Auth::id()
 						],
-						);
+						); 
       //   print_r($id);
-// print_r($request->pro);
+// $id="1";
         // exit();
 
 		$data=$request->pro;
-
+// print_r($data);
+// exit();
 		foreach ($data as $key ) {
 			DB::table('orderaddress')->insert(
                     	    ['qty' => $key['qty'],
@@ -66,8 +67,8 @@ class checkout extends Controller
                     	    ]
                     	);
 
-			echo $key['qty']* $key['price'].'<br>';
-
+			$price= $key['qty']* $key['price'].'<br>';
+            // return redirect('handle-payment')->with(['data'=>$data]);
     }
 
 }

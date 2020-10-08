@@ -153,3 +153,15 @@ Route::get('/PDF/{id}','productcontroller@PDF');
 Route::get('file-import-export', 'UserController@fileImportExport');
 Route::post('file-import', 'UserController@fileImport')->name('file-import');
 Route::get('file-export', 'UserController@fileExport')->name('file-export');
+
+
+
+Route::get('handle-payment', 'PayPalPaymentController@handlePayment')->name('make.payment');
+Route::get('cancel-payment', 'PayPalPaymentController@paymentCancel')->name('cancel.payment');
+Route::get('payment-success', 'PayPalPaymentController@paymentSuccess')->name('success.payment');
+Route::view('paypal', 'product');
+
+
+// Route::get('create_paypal_plan', 'PaypalController@create_plan');
+// Route::get('/subscribe/paypal', 'PaypalController@paypalRedirect')->name('paypal.redirect');
+// Route::get('/subscribe/paypal/return', 'PaypalController@paypalReturn')->name('paypal.return');
