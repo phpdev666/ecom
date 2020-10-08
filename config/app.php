@@ -177,7 +177,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
 
     ],
 
@@ -234,7 +233,7 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         // 'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
-        'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
+        
    
         
     ],

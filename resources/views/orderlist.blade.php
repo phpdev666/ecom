@@ -13,8 +13,8 @@
     </div>
   @endif
  <div class="bs-example widget-shadow" data-example-id="hoverable-table">
-            <h4>Category List:</h4>
-            <a class="btn btn-success" style="float: right;" href="/addcatagori">Add Category</a>
+            <h4>Order List:</h4>
+      
             <table class="table table-hover" id="tbid">
                <thead>
                   <tr>

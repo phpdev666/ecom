@@ -23,7 +23,7 @@ class showorder extends Controller
             ->leftJoin('orderproduct', 'orderproduct.add_id', '=', 'orderaddress.add_id')
             ->leftJoin('product', 'product.product_id', '=', 'orderaddress.product_id')
             ->get();
-            print_r($users);
+            // print_r($users);
             // exit();
              return view('orderlist', ['data' => $users]);
     }

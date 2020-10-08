@@ -165,3 +165,22 @@ Route::view('paypal', 'product');
 // Route::get('create_paypal_plan', 'PaypalController@create_plan');
 // Route::get('/subscribe/paypal', 'PaypalController@paypalRedirect')->name('paypal.redirect');
 // Route::get('/subscribe/paypal/return', 'PaypalController@paypalReturn')->name('paypal.return');
+Route::get('/subscribe/paypal/', 'PaymentController@payWithpaypal');
+
+
+
+Route::get('subscribe-process', [
+    'as' => 'subscribe-process',
+    'uses' => 'PaymentController@SubscribProcess'
+]);
+
+
+Route::get('subscribe-cancel', [
+    'as' => 'subscribe-cancel',
+    'uses' => 'PaymentController@SubscribeCancel'
+]);
+
+Route::get('subscribe-response', [
+    'as' => 'subscribe-response',
+    'uses' => 'PaymentController@SubscribeResponse'
+]);
