@@ -4,18 +4,19 @@
     $SALT = "nlsxxIbgKj"; // add your id
 
     $PAYU_BASE_URL = "https://test.payu.in";
-    //$PAYU_BASE_URL = "https://secure.payu.in";
+    $PAYU_BASE_URL = "https://secure.payu.in";
+    // $PAYU_BASE_URL = "https://sandboxsecure.payu.in";
     $action = '';
     $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
     $posted = array();
     $posted = array(
         'key' => $MERCHANT_KEY,
         'txnid' => $txnid,
-        'amount' => 1000,
-       //'amount' => $price, 
+        'amount' => "1000",
+       // 'amount' => $price, 
         'firstname' => Auth::user()->name,
         'email' => Auth::user()->email,
-        'productinfo' => 'PHP Project Subscribe',
+        'productinfo' => 'Product Description',
         'surl' => 'http://example.com/subscribe-response/',
         'furl' => 'http://example.com/subscribe-cancel/',
         'service_provider' => 'payu_paisa',
@@ -29,9 +30,9 @@
         $txnid = $posted['txnid'];
     }
     
-    $hash = '';
+    // $hash = '';
     $hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10";
-    
+
     if(empty($posted['hash']) && sizeof($posted) > 0) {
         $hashVarsSeq = explode('|', $hashSequence);
         $hash_string = '';  
@@ -49,12 +50,14 @@
         $hash = $posted['hash'];
         $action = $PAYU_BASE_URL . '/_payment';
     }
-
+   print_r($hash_string);
+exit();
 ?>
 <html>
   <head>
   <script>
     var hash = '<?php echo $hash ?>';
+
     function submitPayuForm() {
       if(hash == '') {
         return;
@@ -64,13 +67,15 @@
     }
   </script>
   </head>
-  <body onload="submitPayuForm()">
+
+  <body  onload="submitPayuForm()">
     Processing.....
         <form action="<?php echo $action; ?>" method="post" name="payuForm"><br />
             <input type="hidden" name="key" value="<?php echo $MERCHANT_KEY ?>" /><br />
             <input type="hidden" name="hash" value="<?php echo $hash ?>"/><br />
             <input type="hidden" name="txnid" value="<?php echo $txnid ?>" /><br />
             <input type="hidden" name="amount" value="1000" /><br />
+            <input type="hidden" name="phone" value="654111654" /><br />
             <input type="hidden" name="firstname" id="firstname" value="<?=Auth::user()->name?>" /><br />
             <input type="hidden" name="email" id="email" value="<?=Auth::user()->email?>" /><br />
             <input type="hidden" name="productinfo" value="PHP Project Subscribe"><br />

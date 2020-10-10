@@ -8,34 +8,39 @@ class PayPalPaymentController extends Controller
 {
     public function handlePayment()
     {
-        // $provider = new ExpressCheckout;   
-        $product = [];
-        $product['items'] = [
+         $data = [];
+        $data['items'] = [
             [
-                'name' => 'Nike Joyride 2',
-                'price' => 112,
-                'desc'  => 'Running shoes for Men',
-                'qty' => 2
+                'name' => 'ItSolutionStuff.com',
+                'price' => 100,
+                'desc'  => 'Description for ItSolutionStuff.com',
+                'qty' => 1
             ]
         ];
   
-        $product['invoice_id'] = 1;
-        $product['invoice_description'] = "Order #{$product['invoice_id']} Bill";
-        $product['return_url'] = route('success.payment');
-        $product['cancel_url'] = route('cancel.payment');
-        $product['total'] = 224;
-  
-        $paypalModule = new ExpressCheckout;
-        // echo "<pre>";
-    // print_r($paypalModule);
-    // exit();
-        $res = $paypalModule->setExpressCheckout($product);
-        $res = $paypalModule->setExpressCheckout($product, true);
-        // print_r($res);
-        // exit();
-  
-        return redirect($res['paypal_link']);
+        $data['invoice_id'] = 1;
+        $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
+        $data['return_url'] = route('paypal.success');
+        $data['cancel_url'] = route('paypal.cancel');
+        $data['total'] = 100;
 
+        // $provider = new PayPalClient;
+        // $provider = PayPal::setProvider($data);
+
+        // print_r($data);
+        // exit();
+
+        $provider = new ExpressCheckout();
+
+        $response = $provider->setExpressCheckout($data);
+
+// print_r($response);
+// exit();
+        return redirect($response['paypal_link']);
+        // echo "<pre>";
+        // print_r($provider);
+        // exit;
+        // echo "ddd";
     }
    
     public function paymentCancel()

@@ -157,8 +157,8 @@ Route::get('file-export', 'UserController@fileExport')->name('file-export');
 
 
 Route::get('handle-payment', 'PayPalPaymentController@handlePayment')->name('make.payment');
-Route::get('cancel-payment', 'PayPalPaymentController@paymentCancel')->name('cancel.payment');
-Route::get('payment-success', 'PayPalPaymentController@paymentSuccess')->name('success.payment');
+Route::get('cancel-payment', 'PayPalPaymentController@paymentCancel')->name('paypal.cancel');
+Route::get('payment-success', 'PayPalPaymentController@paymentSuccess')->name('paypal.success');
 Route::view('paypal', 'product');
 
 
@@ -169,18 +169,3 @@ Route::get('/subscribe/paypal/', 'PaymentController@payWithpaypal');
 
 
 
-Route::get('subscribe-process', [
-    'as' => 'subscribe-process',
-    'uses' => 'PaymentController@SubscribProcess'
-]);
-
-
-Route::get('subscribe-cancel', [
-    'as' => 'subscribe-cancel',
-    'uses' => 'PaymentController@SubscribeCancel'
-]);
-
-Route::get('subscribe-response', [
-    'as' => 'subscribe-response',
-    'uses' => 'PaymentController@SubscribeResponse'
-]);

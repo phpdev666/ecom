@@ -68,7 +68,7 @@ class checkout extends Controller
                     	);
 
 			$price= $key['qty']* $key['price'].'<br>';
-            return redirect('subscribe-process')->with(['price'=>$price]);
+            return redirect('handle-payment')->with(['price'=>$price]);
     }
 
 }

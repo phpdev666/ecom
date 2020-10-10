@@ -177,7 +177,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        // Riazxrazor\Payumoney\PayumoneyServiceProvider::class,
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
     ],
 
     /*
@@ -232,7 +233,9 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        // 'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
+        'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
+        // 'Payumoney' => Riazxrazor\Payumoney\PayumoneyFacade::class
+
         
    
         
