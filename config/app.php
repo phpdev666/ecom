@@ -179,6 +179,10 @@ return [
         App\Providers\RouteServiceProvider::class,
         // Riazxrazor\Payumoney\PayumoneyServiceProvider::class,
         Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+       Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+// 'Tymon\JWTAuth\Providers\LaravelServiceProvider' ,
+
+
     ],
 
     /*
@@ -234,7 +238,9 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
-        // 'Payumoney' => Riazxrazor\Payumoney\PayumoneyFacade::class
+        // 'Payumoney' => Riazxrazor\Payumoney\PayumoneyFacade::class,
+         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+          'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
         
    
